@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GetRidOf</title>
+    <meta description = "This is an app with which you can track your bad habits" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  </head>
+
+  <body class="h-100">
+    <div id="app" class="h-100 d-flex flex-column">
+      <div class="nav-container" style="background-color: #20201F;">
+        <nav class="navbar-expand " style="background-color: #20201F; position: absolute; top: 40%; left: 41%;">
+          <div class="container">
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+              
+                <!-- Login button: show if NOT authenticated -->
+                <div class="nav-item auth-invisible">
+                  <button
+                    id="qsLoginBtn"
+                    onclick="login()"
+                    class="auth-invisible hidden"
+                  >
+                    Sign in
+                  </button>
+                </div>
+              
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div id="main-content" class="container flex mt-5 flex-grow-1">
+        <div class="nav-item dropdown auth-visible hidden" style="position: absolute; left: 85%;">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="profileDropDown"
+            data-toggle="dropdown"
+          >
+            <!-- Profile image should be set to the profile picture from the id token -->
+            <img
+              alt="Profile picture"
+              class="nav-user-profile profile-image rounded-circle"
+              width="50"
+            />
+          </a>
+          <div class="dropdown-menu">
+            <!-- Show the user's full name from the id token here -->
+            <div class="dropdown-header nav-user-name user-name"></div>
+            <a
+              href="/profile"
+              class="dropdown-item dropdown-profile route-link"
+            >
+              <i class="fas fa-user mr-3"></i> Profile
+            </a>
+            <a
+              href="#"
+              class="dropdown-item"
+              id="qsLogoutBtn"
+              onclick="logout()"
+            >
+              <i class="fas fa-power-off mr-3"></i> Log out
+            </a>
+          </div>
+        </div> 
+        <div id="content-home" class="page auth-visible flex md-2 " style="height: 90vh; width: inherit;">
+          
+
+          <div class="main auth-visible" style="flex-basis: 60%;">
+
+            <div class = "header auth-visible">
+              <div class="leftHeader auth-visible">
+                <img class="profile-image"/>
+                <h2 class="user-name" style="color: #B9B4B4"></h2>
+              </div>
+              <div class="rightHeader auth-visible">
+                <h1 id = "text" style="color: #B9B4B4; margin-bottom: 50px; margin-left: 10px;"></h1>
+              </div>
+            </div>
+
+            <div class="auth-visible" style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 20px;">
+              <input class="auth-visible" type="text" id="myInput" placeholder="Title...">
+              <button class="addButton auth-visible" onclick="newElement()">Add Habit</button>
+            </div>
+            <ul id="myUL" class="auth-visible" style="margin-top: 4rem;">
+              <li id="smoke">Smoking</li>
+            </ul>
+            
+          </div>
+
+          <div class="sidebar auth-visible" style="flex-basis: 40%; border-left: 5px solid white;">
+              <div id="streak">
+                
+              </div>
+          </div>
+        </div>
+
+        <div class="page" id="content-profile">
+          <div class="container">
+            <div class="row align-items-center profile-header">
+              <div class="col-md-2">
+                <img
+                  alt="User's profile picture"
+                  class="rounded-circle img-fluid profile-image mb-3 mb-md-0"
+                />
+              </div>
+              <div class="col-md">
+                <h2 class="user-name"></h2>
+                <p class="lead text-muted user-email"></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <pre class="rounded">
+                <code id="profile-data" class="json"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/func.js"></script>
+  </body>
+</html>
