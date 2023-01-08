@@ -1,4 +1,5 @@
 # GETRIDOF APPLICATION
+![Screenshot (668)](https://user-images.githubusercontent.com/64877729/211177346-6e6cf86e-6922-4cef-a863-fc747e4bf5da.png)
 
 ### Why getridof?
 
