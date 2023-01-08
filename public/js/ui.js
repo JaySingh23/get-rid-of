@@ -14,7 +14,7 @@ var router = {
  * @param {*} selector The CSS selector to find
  * @param {*} fn The function to execute for every element
  */
-const eachElement = (selector, fn) => {
+var eachElement = (selector, fn) => {
   for (let e of document.querySelectorAll(selector)) {
     fn(e);
   }
@@ -26,7 +26,7 @@ const eachElement = (selector, fn) => {
  * router, defined above.
  * @param {*} url The route URL
  */
-const showContentFromUrl = (url) => {
+var showContentFromUrl = (url) => {
   if (router[url]) {
     router[url]();
     return true;
@@ -39,7 +39,7 @@ const showContentFromUrl = (url) => {
  * Returns true if `element` is a hyperlink that can be considered a link to another SPA route
  * @param {*} element The element to check
  */
-const isRouteLink = (element) =>
+var isRouteLink = (element) =>
   element.tagName === "A" && element.classList.contains("route-link");
 
 /**
@@ -48,7 +48,7 @@ const isRouteLink = (element) =>
  * so that it can be correctly hidden before the requested content is shown.
  * @param {*} id The id of the content to show
  */
-const showContent = (id) => {
+var showContent = (id) => {
   eachElement(".page", (p) => p.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 };
@@ -56,7 +56,7 @@ const showContent = (id) => {
 /**
  * Updates the user interface
  */
-const updateUI = async () => {
+var updateUI = async () => {
   try {
     const isAuthenticated = await auth0Client.isAuthenticated();
 
